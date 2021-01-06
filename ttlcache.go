@@ -7,6 +7,7 @@ import (
 
 const defaultCapacity = 16 // Just to avoid extra allocations in most of the cases.
 
+// Cache represents key-value storage.
 type Cache struct {
 	done  chan struct{}
 	mu    sync.RWMutex
@@ -18,6 +19,9 @@ type item struct {
 	value    interface{}
 }
 
+// New creates key-value storage.
+// resolution – configures cleanup manager.
+// Cleanup operation locks storage so think twice before setting it to small value.
 func New(resolution time.Duration) *Cache {
 	c := &Cache{
 		done:  make(chan struct{}),
@@ -29,6 +33,9 @@ func New(resolution time.Duration) *Cache {
 	return c
 }
 
+// Get returns stored record.
+// The first returned variable is a stored value.
+// The second one is an existence flag like in the map.
 func (c *Cache) Get(key uint64) (interface{}, bool) {
 	c.mu.RLock()
 	cacheItem, ok := c.items[key]
@@ -54,12 +61,14 @@ func (c *Cache) Set(key uint64, value interface{}, ttl time.Duration) {
 	c.mu.Unlock()
 }
 
+// Delete removes record from storage.
 func (c *Cache) Delete(key uint64) {
 	c.mu.Lock()
 	delete(c.items, key)
 	c.mu.Unlock()
 }
 
+// Stops cleanup manager and removes records from storage.
 func (c *Cache) Close() error {
 	close(c.done)
 
