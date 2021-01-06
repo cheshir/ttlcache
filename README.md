@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/cheshir/ttlcache.svg?branch=master)](https://travis-ci.org/cheshir/ttlcache)
+[![Go Report Card](https://goreportcard.com/badge/cheshir/ttlcache)](https://goreportcard.com/report/github.com/cheshir/ttlcache)
+[![GoDoc](https://godoc.org/github.com/cheshir/ttlcache?status.svg)](https://godoc.org/github.com/cheshir/ttlcache)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/cheshir/go-mq/blob/master/LICENSE)
+
 # ttlcache
 
 ## About
@@ -63,7 +68,7 @@ Just play with numbers and types and check that library is suitable for your pur
 
 `go test -bench=. -benchmem`
 
-For those of us who wants to get sum numbers without downloading unknown stuff (MacBook Pro 16"):
+For those of us who wants to get some numbers without downloading unknown stuff (MacBook Pro 16"):
 
 ```
 BenchmarkCache_Set-16            8755802               122 ns/op               8 B/op          0 allocs/op
