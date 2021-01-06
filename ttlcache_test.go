@@ -29,7 +29,7 @@ func TestCache(t *testing.T) {
 		}
 	}
 
-	time.Sleep(3 * time.Millisecond)
+	time.Sleep(4 * time.Millisecond)
 
 	{
 		_, ok := c.Get(key)
