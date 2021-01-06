@@ -23,8 +23,6 @@ The key is of uint64 type. Library provides wrappers for common types:
 `AnyKey` is not suitable for _very_ intensive usage. Consider writing your own hash function if your keys are complex types, 
 and you faced performance degradation.
 
-tftcache uses crc64 hash function that is quite fast.
-
 ## Installation
 
 `go get -u github.com/cheshir/ttlcache`
@@ -56,4 +54,18 @@ func main() {
 
 	fmt.Println(value.(string)) // This is necessary type assertion, because returned value is of interface{} type.
 }
+```
+
+## Performance
+
+If you're interested in benchmarks you can check them in repository.
+Just play with numbers and types and check that library is suitable for your purposes.
+
+`go test -bench=. -benchmem`
+
+For those of us who wants to get sum numbers without downloading unknown stuff (MacBook Pro 16"):
+
+```
+BenchmarkCache_Set-16            8755802               122 ns/op               8 B/op          0 allocs/op
+BenchmarkCache_Get-16           57474564               19.6 ns/op              0 B/op          0 allocs/op
 ```
