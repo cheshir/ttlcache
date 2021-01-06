@@ -53,11 +53,11 @@ func Uint64Key(k uint64) uint64 {
 }
 
 func BytesKey(k []byte) uint64 {
-	return NewKeyFromBytes(k)
+	return newKeyFromBytes(k)
 }
 
 func StringKey(k string) uint64 {
-	return NewKeyFromBytes([]byte(k))
+	return newKeyFromBytes([]byte(k))
 }
 
 // Should not be used for large datasets.
@@ -65,10 +65,10 @@ func StringKey(k string) uint64 {
 func AnyKey(k interface{}) uint64 {
 	s := fmt.Sprintf("%#v", k)
 
-	return NewKeyFromBytes([]byte(s))
+	return newKeyFromBytes([]byte(s))
 }
 
-func NewKeyFromBytes(k []byte) uint64 {
+func newKeyFromBytes(k []byte) uint64 {
 	hashTable := hashPool.Get().(*crc64.Table)
 	hash := crc64.Checksum(k, hashTable)
 	hashPool.Put(hashTable)
