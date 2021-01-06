@@ -68,7 +68,7 @@ func (c *Cache) Delete(key uint64) {
 	c.mu.Unlock()
 }
 
-// Stops cleanup manager and removes records from storage.
+// Close stops cleanup manager and removes records from storage.
 func (c *Cache) Close() error {
 	close(c.done)
 
