@@ -35,7 +35,7 @@ and you faced performance degradation.
 
 ## Usage
 
-```
+```go
 package main
 
 import (
@@ -49,16 +49,16 @@ const (
 
 func main() {
     // How often we need to stop the world and remove outdated records.
-	resolution := minute
+    resolution := minute
 
-	cache := ttlcache.New(resolution)
-	cache.Set(ttlcache.StringKey("some key"), "value", hour)
-	value, ok := cache.Get(ttlcache.StringKey("some key"))
-	if !ok {
-		// there is no record with key "some key" in the cache. Probably it has been expired.
-	}
+    cache := ttlcache.New(resolution)
+    cache.Set(ttlcache.StringKey("some key"), "value", hour)
+    value, ok := cache.Get(ttlcache.StringKey("some key"))
+    if !ok {
+        // there is no record with key "some key" in the cache. Probably it has been expired.
+    }
 
-	fmt.Println(value.(string)) // This is necessary type assertion, because returned value is of interface{} type.
+    fmt.Println(value.(string)) // This is necessary type assertion, because returned value is of interface{} type.
 }
 ```
 
@@ -71,7 +71,7 @@ Just play with numbers and types and check that library is suitable for your pur
 
 For those of us who wants to get some numbers without downloading unknown stuff (MacBook Pro 16"):
 
-```
+```go
 BenchmarkCache_Set-16            8755802               122 ns/op               8 B/op          0 allocs/op
 BenchmarkCache_Get-16           57474564               19.6 ns/op              0 B/op          0 allocs/op
 ```
