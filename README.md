@@ -35,7 +35,7 @@ and you faced performance degradation.
 
 ## Usage
 
-```
+```go
 package main
 
 import (
@@ -71,7 +71,7 @@ Just play with numbers and types and check that library is suitable for your pur
 
 For those of us who wants to get some numbers without downloading unknown stuff (MacBook Pro 16"):
 
-```
+```go
 BenchmarkCache_Set-16            8755802               122 ns/op               8 B/op          0 allocs/op
 BenchmarkCache_Get-16           57474564               19.6 ns/op              0 B/op          0 allocs/op
 ```
