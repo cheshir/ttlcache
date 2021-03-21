@@ -73,11 +73,11 @@ Just play with numbers and types and check that library is suitable for your pur
 For those of us who wants to get some numbers without downloading unknown stuff (MacBook Pro 16"):
 
 ```go
-BenchmarkCache_Set_Time_100-16           8959221               125 ns/op
-BenchmarkCache_Set_Time_1000-16          9177854               123 ns/op
-BenchmarkCache_Set_Time_10000-16         9247304               131 ns/op
-BenchmarkCache_Get_Time_100-16           50562800              23.9 ns/op
-BenchmarkCache_Get_Time_1000-16          47270793              26.9 ns/op
-BenchmarkCache_Get_Time_10000-16         42578484              27.7 ns/op
+BenchmarkCache_Set_100-16           8959221               125 ns/op
+BenchmarkCache_Set_1000-16          9177854               123 ns/op
+BenchmarkCache_Set_10000-16         9247304               131 ns/op
+BenchmarkCache_Get_100-16           50562800              23.9 ns/op
+BenchmarkCache_Get_1000-16          47270793              26.9 ns/op
+BenchmarkCache_Get_10000-16         42578484              27.7 ns/op
 
 ```
