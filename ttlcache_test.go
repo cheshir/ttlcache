@@ -64,6 +64,36 @@ func TestCache_Delete(t *testing.T) {
 	}
 }
 
+func TestCache_Clear(t *testing.T) {
+	c := New(time.Millisecond)
+
+	for i := 1; i < 5; i++ {
+		c.Set(IntKey(i), i, 0)
+	}
+
+	c.Clear()
+
+	for i := 1; i < 5; i++ {
+		_, ok := c.Get(IntKey(i))
+		if ok {
+			t.Error("Storage was not cleaned up")
+		}
+	}
+
+	// Verify that the cleanup manager is still running
+	ttl := 2 * time.Millisecond
+	key := StringKey("key")
+	value := "value"
+
+	c.Set(key, value, ttl)
+	time.Sleep(4 * time.Millisecond)
+
+	_, ok := c.Get(key)
+	if ok {
+		t.Error("record was not cleaned up")
+	}
+}
+
 func TestClose(t *testing.T) {
 	c := New(time.Second)
 	c.Set(IntKey(1), 1, 0)
