@@ -68,6 +68,13 @@ func (c *Cache) Delete(key uint64) {
 	c.mu.Unlock()
 }
 
+// Clear removes all items from storage and leaves the cleanup manager running.
+func (c *Cache) Clear() {
+	c.mu.Lock()
+	c.items = make(map[uint64]item, defaultCapacity)
+	c.mu.Unlock()
+}
+
 // Close stops cleanup manager and removes records from storage.
 func (c *Cache) Close() error {
 	close(c.done)
