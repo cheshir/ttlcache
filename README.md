@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/cheshir/ttlcache.svg?branch=main)](https://travis-ci.com/cheshir/ttlcache)
+[![Build Status](https://github.com/cheshir/ttlcache/actions/workflows/go.yml/badge.svg)](https://github.com/cheshir/ttlcache/actions/workflows/go.yml)
 [![codecov](https://codecov.io/gh/cheshir/ttlcache/branch/main/graph/badge.svg?token=WsaH2t9dGh)](https://codecov.io/gh/cheshir/ttlcache)
 [![Go Report Card](https://goreportcard.com/badge/cheshir/ttlcache)](https://goreportcard.com/report/github.com/cheshir/ttlcache)
 [![GoDoc](https://godoc.org/github.com/cheshir/ttlcache?status.svg)](https://godoc.org/github.com/cheshir/ttlcache)
